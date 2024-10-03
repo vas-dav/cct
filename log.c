@@ -78,11 +78,11 @@ static void __create_log_line(const char* _status,
 	va_end(args);
 	char buffer[LOG_BUFFER_MAX_CAP] = {0};
 	int buffer_len = snprintf(buffer, LOG_BUFFER_MAX_CAP,
-	                          "[%s] In [File: %s] [Func: %s] [Line: %zu] %.*s\n",
+	                          "[%s] %s:%zu:%s %.*s\n",
 	                          _status,
 	                          _location,
-	                          _func,
 	                          _line,
+	                          _func,
 	                          message_len,
 	                          message);
 	_LOG_STREAMOUT(buffer, buffer_len);
